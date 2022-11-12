@@ -1,5 +1,4 @@
 import 'dart:async';
-
 import 'package:country/presentation/resources/color_manager.dart';
 import 'package:flutter/material.dart';
 
@@ -36,7 +35,11 @@ class _SplashScreenState extends State<SplashScreen> {
     return Scaffold(
       backgroundColor: ColorManager.darkMode,
       body: Center(
-        child: Text("Country"),
+        child: Text("Country", style: TextStyle(
+          fontSize: 25,
+          color: ColorManager.lightMode,
+          fontWeight: FontWeight.bold
+        ),),
       ),
     );
   }

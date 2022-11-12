@@ -1,7 +1,5 @@
 import 'package:country/services/country_api_request.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
-import '../../../models/country_api_model.dart';
 import '../../widgets/http_widget.dart';
 
 class MainView extends StatefulWidget {
@@ -59,12 +57,43 @@ class _MainViewState extends State<MainView> {
                     showModalBottomSheet(
                         context: context,
                         shape: const RoundedRectangleBorder(
-                          borderRadius: BorderRadius.only(topLeft: Radius.circular(50), topRight: Radius.circular(50))
+                          borderRadius: BorderRadius.only(topLeft: Radius.circular(30), topRight: Radius.circular(30))
                         ),
                         builder: (BuildContext context) {
-                          return const SizedBox(
+                          return SizedBox(
                             width: double.infinity,
                             height: 500,
+                            child: Padding(
+                              padding: const EdgeInsets.symmetric(horizontal: 18.0, vertical: 20),
+                              child: Column(
+                                children: [
+                                  Row(
+                                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      const Text("Languages", style: TextStyle(
+                                          fontSize: 20,
+                                          fontWeight: FontWeight.w600
+                                      ),),
+                                      IconButton(
+                                        onPressed: () {
+                                          Navigator.pop(context);
+                                        },
+                                          icon: const Icon(Icons.cancel_presentation)
+                                      )
+                                    ],
+                                  ),
+                                  Expanded(
+                                    child: ListView.builder(
+                                      itemCount: 10,
+                                        itemBuilder: (context,i) {
+                                        return ListTile(
+                                          title: Text(i.toString()),
+                                        );
+                                        }),
+                                  ),
+                                ],
+                              ),
+                            ),
                           );
                         });
                   },
@@ -75,8 +104,8 @@ class _MainViewState extends State<MainView> {
                         shape: BoxShape.rectangle,
                         border: Border.all(color: Colors.grey),
                         borderRadius: const BorderRadius.horizontal(
-                            left: const Radius.circular(25),
-                            right: const Radius.circular(25),
+                            left: Radius.circular(25),
+                            right: Radius.circular(25),
                         )
                     ),
                     child: Row(
@@ -100,13 +129,44 @@ class _MainViewState extends State<MainView> {
                 InkWell(
                   onTap: () {
                     showModalBottomSheet(
+                        shape: const RoundedRectangleBorder(
+                            borderRadius: BorderRadius.only(topLeft: Radius.circular(30), topRight: Radius.circular(30))
+                        ),
                         context: context,
                         builder: (BuildContext context) {
-                          return const SizedBox(
+                          return SizedBox(
                             width: double.infinity,
-                            height: 500,
-                            child: Center(
-                              child: Text("data"),
+                            height: 200,
+                            child: Padding(
+                              padding: const EdgeInsets.symmetric(horizontal: 18.0, vertical: 20),
+                              child: Column(
+                                children: [
+                                  Row(
+                                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      const Text("Filter", style: TextStyle(
+                                          fontSize: 20,
+                                          fontWeight: FontWeight.w600
+                                      ),),
+                                      IconButton(
+                                          onPressed: () {
+                                            Navigator.pop(context);
+                                          },
+                                          icon: const Icon(Icons.cancel_presentation)
+                                      )
+                                    ],
+                                  ),
+                                  Expanded(
+                                    child: ListView.builder(
+                                        itemCount: 2,
+                                        itemBuilder: (context,i) {
+                                          return ListTile(
+                                            title: Text(i.toString()),
+                                          );
+                                        }),
+                                  ),
+                                ],
+                              ),
                             ),
                           );
                         });

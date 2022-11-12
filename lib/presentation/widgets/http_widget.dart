@@ -47,14 +47,13 @@ class _HTTPWidgetState extends State<HTTPWidget> {
             );
           }
           if (snapshot.hasError) {
-            print(snapshot.error);
-            return const Center(
-              child: Text("errors"),
+            return Center(
+              child: Text("${snapshot.error}"),
             );
           }
-          return Center(
+          return const Center(
               child: SpinKitCircle(
-            color: ColorManager.lightMode,
+            color: Colors.blue,
           ));
         });
   }
