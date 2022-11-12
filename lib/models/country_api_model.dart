@@ -1,93 +1,62 @@
-class CountryData {
+class NameData {
   final String? common;
   final String? official;
 
-  CountryData({required this.common, required this.official});
+  NameData({required this.common, required this.official});
 
-  factory CountryData.fromJson(Map<String, dynamic> json) =>
-      CountryData(common: json["common"], official: json["official"]);
+  factory NameData.fromJson(Map<String, dynamic> json) {
+    return NameData(official: json["official"], common: json["common"]);
+  }
+}
+
+// class Language {
+//   final String? language;
+//   Language({required this.language});
+
+//   factory Language.fromJson(Map<String, dynamic> json) => Language(language: json["la"]);
+// }
+
+class Flags {
+  final String? png;
+  final String? svg;
+
+  Flags({required this.png, required this.svg});
+
+  factory Flags.fromJson(Map<String, dynamic> json) => Flags(png: json["png"], svg: json["svg"]);
+}
+
+class CoatOfArms {
+  final String? png;
+  final String? svg;
+
+  CoatOfArms({required this.png, required this.svg});
+
+  factory CoatOfArms.fromJson(Map<String, dynamic> json) => CoatOfArms(png: json["png"], svg: json["svg"]);
 }
 
 class Name {
-  final CountryData countryData;
-  final int population;
-  final String region;
-  final List capital;
-  final double area;
-  final List timezone;
-  final List continents;
-  final Car car;
-  final Language language;
-  final Flag flag;
-  final CoatOfArm coatOfArm;
-  Name(
-      {required this.countryData,
-      required this.population,
-      required this.region,
-      required this.capital,
-      required this.area,
-      required this.timezone,
-      required this.continents,
-      required this.car,
-      required this.language,
-      required this.flag,
-      required this.coatOfArm});
+  final NameData name;
+  final List? capital;
+  final String? region;
+  final int? population;
+  final List? timezone;
+  final List? continent;
+  final double? area;
+  final Flags flag;
+  final CoatOfArms coatOfArms;
+  Name({required this.name, required this.capital, required this.region, required this.population, required this.timezone, required this.continent, required this.area, required this.flag, required this.coatOfArms});
 
-  factory Name.fromJson(Map<String, dynamic> json) => Name(
-      countryData: CountryData.fromJson(json["name"]),
-      population: json["population"],
-      region: json["region"],
-      capital: json["capital"],
-      area: json["area"],
-      timezone: json["timezones"],
-      continents: json["continents"],
-      car: Car.fromJson(json["car"]),
-      language: Language.fromJson(json["languages"]),
-      flag: Flag.fromJson(json["flags"]),
-      coatOfArm: CoatOfArm.fromJson(json["coatOfArms"]));
-}
-
-class Car {
-  final String side;
-
-  Car({required this.side});
-
-  factory Car.fromJson(Map<String, dynamic> json) => Car(side: json["side"]);
-}
-
-class Language {
-  final String? eng;
-
-  Language({required this.eng});
-
-  factory Language.fromJson(Map<String, dynamic> json) =>
-      Language(eng: json["eng"]);
-}
-
-class Flag {
-  final String url;
-
-  Flag({required this.url});
-
-  factory Flag.fromJson(Map<String, dynamic> json) => Flag(url: json["png"]);
-}
-
-class CoatOfArm {
-  final String? url;
-
-  CoatOfArm({required this.url});
-
-  factory CoatOfArm.fromJson(Map<String, dynamic> json) =>
-      CoatOfArm(url: json["svg"]);
-}
-
-class CountryList {
-  final List<Name> name;
-
-  CountryList({required this.name});
-
-  factory CountryList.fromList(List<dynamic> list) {
-    List<Name> dataList = list.map((e) => Name.fromJson(e)).toList();
-    return CountryList(name: dataList);
+  factory Name.fromJson(Map<String, dynamic> json) {
+    return Name(
+        name: NameData.fromJson(json["name"]),
+        capital: json["capital"] ?? "Unknown",
+        region: json["region"],
+        population: json["population"],
+        timezone: json["timezones"],
+        continent: json["continents"],
+        area: json["area"],
+        flag: Flags.fromJson(json["flags"]),
+        coatOfArms: CoatOfArms.fromJson(json["coatOfArms"])
+    );
   }
 }

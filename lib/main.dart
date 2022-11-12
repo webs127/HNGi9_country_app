@@ -1,9 +1,6 @@
 import 'dart:async';
-
-import 'package:country/models/country_api_model.dart';
 import 'package:country/presentation/resources/route_manager.dart';
 import 'package:country/presentation/resources/theme_manager.dart';
-import 'package:country/services/country_api_request.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -69,7 +66,7 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'My Resume',
+      title: 'Country',
       debugShowCheckedModeBanner: false,
       onGenerateRoute: Routes.getRoutes,
       initialRoute: RouteManager.splash,
