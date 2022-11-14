@@ -12,7 +12,23 @@ class MainView extends StatefulWidget {
 class _MainViewState extends State<MainView> {
   final String url = 'https://restcountries.com/v3.1/all';
   final input = TextEditingController();
-  @override
+  List timezones = [
+    "UTC-04:00",
+    "UTC-03:00",
+    "UTC-10:00",
+    "UTC-12:00",
+    "UTC-11:00",
+    "UTC-07:00",
+    "UTC-08:00",
+    "UTC-05:00",
+    "UTC-08:00",
+    "UTC-09:00",
+  ];
+  List timezone2 = [
+    "Continent",
+    "Region",
+
+  ];
   Widget build(BuildContext context) {
     return SafeArea(
         child: Scaffold(
@@ -84,10 +100,10 @@ class _MainViewState extends State<MainView> {
                                   ),
                                   Expanded(
                                     child: ListView.builder(
-                                      itemCount: 10,
+                                      itemCount: timezones.length,
                                         itemBuilder: (context,i) {
                                         return ListTile(
-                                          title: Text(i.toString()),
+                                          title: Text(timezones[i]),
                                         );
                                         }),
                                   ),
@@ -158,10 +174,10 @@ class _MainViewState extends State<MainView> {
                                   ),
                                   Expanded(
                                     child: ListView.builder(
-                                        itemCount: 2,
+                                        itemCount: timezone2.length,
                                         itemBuilder: (context,i) {
                                           return ListTile(
-                                            title: Text(i.toString()),
+                                            title: Text(timezone2[i]),
                                           );
                                         }),
                                   ),

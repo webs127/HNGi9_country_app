@@ -9,3 +9,4 @@ to search any country in the world with their properties.
   font_awesome_flutter: ^10.2.1 -  This library was used to get Icons that are not available in the material Icons
 - The challenges i faced was i was not able to implement the filtering and search method
 - I would have added the filtering and search methods
+- Link to apk - https://appetize.io/app/3e4yp4lsuzxveblg3ooudui5l4?device=pixel4&osVersion=11.0&scale=75
