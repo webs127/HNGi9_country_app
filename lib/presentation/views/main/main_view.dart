@@ -10,7 +10,7 @@ class MainView extends StatefulWidget {
 }
 
 class _MainViewState extends State<MainView> {
-  final String url = 'https://restcountries.com/v3.1/allscd ';
+  final String url = 'https://restcountries.com/v3.1/all';
   final input = TextEditingController();
   @override
   Widget build(BuildContext context) {
